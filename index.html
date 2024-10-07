@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function setAction() {
+            const simNumber = document.getElementById('simNumber').value;
+            document.getElementById('simDetailsForm').action = `/sim-details/${simNumber}`;
+        }
+    </script>
+</head>
+<body>
+    <form method="POST" action="/activate">
+        <div>
+            <p>Activation</p>
+            <label for="activateSimNumber">SIM Number:</label>
+            <input type="text" id="activateSimNumber" name="sim_number" required>
+            <br>
+            <button type="'submit">Activate</button>
+        </div>
+    </form>
+
+    <form method="POST" action="/deactivate">
+        <div>
+            <p>Deactivate</p>
+            <label for="deactivateSimNumber">SIM Number:</label>
+            <input type="text" id="deactivateSimNumber" name="sim_number" required>
+            <br>
+            <button type="submit">Deactivate</button>
+        </div>
+    </form>
+
+    <br>
+    <br>
+    <form id="simDetailsForm" method="GET" onsubmit="setAction()">
+        <div>
+            <p>Get SIM Details</p>
+            <label for="simNumber">SIM Number:</label>
+            <input id="simNumber" name="simNumber" type="text" required>
+            <button type="submit">Get Details</button>
+        </div>
+    </form>
+
+<div>
+</body>
+</html>
